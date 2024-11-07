@@ -1,6 +1,5 @@
 {
  "actions": [],
- "allow_guest_to_view": 1,
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "hash",
@@ -113,7 +112,7 @@
    "link_fieldname": "wiki_page"
   }
  ],
- "modified": "2024-09-04 17:06:27.584176",
+ "modified": "2024-11-07 12:25:32.733230",
  "modified_by": "Administrator",
  "module": "Wiki",
  "name": "Wiki Page",
