@@ -6,12 +6,28 @@ body {
   --editor-line-no-bg-color: var(--gray-100);
 
   --editor-background-color: #f3f3f3;
+
+  --button-background-color: #383838;
+
+  --editor-toolbar-btn-color: var(--gray-800);
+  --editor-toolbar-btn-bg-color: var(--editor-background-color);
+
+  --editor-text-selection-color: #d0d0d0;
+
 }
 
 body.dark {
   --editor-line-no-bg-color: var(--gray-800);
   --control-bg-on-gray: var(--gray-700);
   --editor-background-color: #333c44;
+
+  --button-background-color: #383838;
+
+  --editor-toolbar-btn-color: var(--gray-100);
+  --editor-toolbar-btn-bg-color: var(--editor-background-color);
+
+  --editor-text-selection-color: #606060;
+
 
   .draft-wiki-page {
     background: var(--gray-700);
@@ -21,6 +37,7 @@ body.dark {
 
 .form-control {
   background-color: white;
+  border: 1px solid var(--background-color);
 }
 
 // edit page
@@ -440,6 +457,34 @@ $font-sizes-mobile: (
     width: fit-content;
   }
 
+  .btn-primary {
+    color: var(--btn-primary-color) !important;
+    background-color: var(--btn-primary-bg-color) !important;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--btn-primary-hover-bg-color) !important;
+  }
+
+  .btn-primary:active {
+    color: var(--btn-primary-color) !important;
+    background-color: var(--btn-primary-active-bg-color) !important;
+  }
+
+  .btn-secondary {
+    color: var(--btn-secondary-color) !important;
+    background-color: var(--btn-secondary-bg-color) !important;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--btn-secondary-hover-bg-color) !important;
+  }
+
+  .btn-secondary:active {
+    background-color: var(--btn-secondary-active-bg-color) !important;
+  }
+
+
   a.btn-primary-light {
     background-color: var(--btn-secondary-color) !important;
   }
@@ -577,7 +622,7 @@ $font-sizes-mobile: (
 
 .btn.btn-primary:hover {
   color: #fff;
-  background-color: var(--editor-background-color);
+  background-color: var(--button-background-color);
   border-color: #383838;
 }
 
@@ -630,4 +675,36 @@ ul[data-type="taskList"] {
       }
     }
   }
+}
+
+.file-upload-area {
+  background: var(--btn-secondary-bg-color) !important;
+}
+
+.file-upload-area div button {
+  color: var(--btn-secondary-color) !important; ;
+}
+
+.ace_editor .ace_marker-layer .ace_selection {
+  background: var(--editor-text-selection-color) !important;
+}
+
+.toolbar {
+  padding-bottom: 8px;
+  display: flex;
+  gap: 6px;
+}
+
+.toolbar button {
+  width: 28px !important;
+  height: 28px !important;
+  background: var(--editor-toolbar-btn-bg-color) !important;
+  border: 1px solid #ccc;
+  border-radius: 4px !important;
+  color: var(--editor-toolbar-btn-color) !important;
+  cursor: pointer;
+}
+
+.toolbar i {
+  font-size: 14px;
 }

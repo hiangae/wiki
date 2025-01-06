@@ -205,7 +205,7 @@ class WikiPage(WebsiteGenerator):
 
 		wiki_settings = frappe.get_single("Wiki Settings")
 		wiki_space_name = frappe.get_value("Wiki Group Item", {"wiki_page": self.name}, "parent")
-		wiki_space = frappe.get_doc("Wiki Space", wiki_space_name)
+		wiki_space = frappe.get_doc("Wiki Space", wiki_space_name) if wiki_space_name else frappe._dict()
 
 		context.no_cache = 1
 		context.navbar_search = wiki_settings.add_search_bar
@@ -599,5 +599,8 @@ def update_page_settings(name, settings):
 
 
 @frappe.whitelist()
-def get_markdown_content(wikiPageName):
-	return frappe.db.get_value("Wiki Page", wikiPageName, "content")
+def get_markdown_content(wikiPageName, wikiPagePatch):
+	if wikiPagePatch:
+		new_code, new_title = frappe.db.get_value("Wiki Page Patch", wikiPagePatch, ["new_code", "new_title"])
+		return {"content": new_code, "title": new_title}
+	return frappe.db.get_value("Wiki Page", wikiPageName, ["content", "title"], as_dict=True)

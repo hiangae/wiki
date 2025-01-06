@@ -12,9 +12,15 @@ body {
   --sidebar-hover-color: #ebebe9;
   --toc-hover-text-color: var(--gray-900);
 
-  --btn-text-color: var(--gray-900);
-  --btn-secondary-color: #f4f5f6;
-  --btn-secondary-hover-color: var(--gray-300);
+  --btn-primary-color: #fff;
+  --btn-primary-bg-color: #171717;
+  --btn-primary-hover-bg-color: #383838;
+  --btn-primary-active-bg-color: #525252;
+
+  --btn-secondary-color: #383838;
+  --btn-secondary-bg-color: #f3f3f3;
+  --btn-secondary-hover-bg-color: #ededed;
+  --btn-secondary-active-bg-color: #e2e2e2;
 
   --active-item-color: #f1f1f0;
   --active-item-text-color: var(--primary);
@@ -61,10 +67,15 @@ body.dark {
   --sidebar-hover-color: #242a30;
   --toc-hover-text-color: var(--gray-500);
 
-  --btn-text-color: var(--blue-500);
-  --btn-color: #4c5a67;
-  --btn-secondary-color: var(--btn-color);
-  --btn-secondary-hover-color: var(--gray-500);
+  --btn-primary-color: #000;
+  --btn-primary-bg-color: #fff;
+  --btn-primary-hover-bg-color: #d4d4d4;
+  --btn-primary-active-bg-color: #afafaf;
+
+  --btn-secondary-color: #d4d4d4;
+  --btn-secondary-bg-color: #333c44;
+  --btn-secondary-hover-bg-color: #313a41;
+  --btn-secondary-active-bg-color: #2b3339;
 
   --active-item-color: var(--gray-700);
   --searchbar-color: #242a30;
@@ -91,6 +102,7 @@ body.dark {
 
   --editor-button-text-color: var(--gray-400);
   --editor-hover-button-color: var(--gray-700);
+  --subtle-fg: var(--btn-secondary-bg-color);
 
   .navbar .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
@@ -657,7 +669,8 @@ body.dark {
 }
 
 .dropdown-menu {
-  background-color: var(--background-color);
+  background-color: var(--editor-background-color);
+  border-color: var(--editor-background-color);
 
   .dropdown-item {
     color: var(--text-color);
@@ -668,6 +681,10 @@ body.dark {
       color: var(--text-color);
     }
   }
+}
+
+.dropdown-menu.show {
+  top: 4px !important;
 }
 
 // main-content
@@ -797,11 +814,16 @@ h6:hover .feather-link {
 }
 
 .btn.btn-secondary {
-  background-color: var(--btn-secondary-color);
+  color: var(--btn-secondary-color) !important;
+  background-color: var(--btn-secondary-bg-color) !important;
+}
 
-  &:hover {
-    background-color: var(--btn-secondary-hover-color);
-  }
+.btn.btn-secondary:hover {
+  background-color: var(--btn-secondary-hover-bg-color) !important;
+}
+
+.btn.btn-secondary:active {
+  background-color: var(--btn-secondary-active-bg-color) !important;
 }
 
 .feedback-btn {
@@ -816,7 +838,7 @@ h6:hover .feather-link {
   width: 25rem;
 
   .form-control:focus {
-    border: none;
+    border: 1px solid var(--background-color);
   }
 
   .rating-options-buttons {
